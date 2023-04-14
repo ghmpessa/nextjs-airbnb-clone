@@ -46,9 +46,9 @@ export async function DELETE(
 
   let favoriteIds = [...(currentUser.favoriteIds || [])]
 
-  favoriteIds = favoriteIds.filter(item => item !== listingId)
+  favoriteIds = favoriteIds.filter(id => id !== listingId)
 
-  const user = prisma.user.update({
+  const user = await prisma.user.update({
     where: {
       id: currentUser.id,
     },
