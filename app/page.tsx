@@ -3,7 +3,7 @@ import Container from '@/app/components/container'
 import EmptyState from '@/app/components/empty-state'
 import getListings from '@/app/actions/get-listings'
 import ListingCard from '@/app/components/listing-card'
-import getCurrentUser from './actions/get-current-user'
+import getCurrentUser from '@/app/actions/get-current-user'
 
 export default async function Home() {
   const currentUser = await getCurrentUser()
