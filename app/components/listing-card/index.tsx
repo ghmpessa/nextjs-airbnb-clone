@@ -11,7 +11,7 @@ import Image from 'next/image'
 import HeartButton from '../heart-button'
 import Button from '../button'
 
-interface ListindCardProps {
+interface ListingCardProps {
   data: SafeListing
   reservation?: Reservation
   onAction?: (id: string) => void
@@ -21,7 +21,7 @@ interface ListindCardProps {
   currentUser?: SafeUser | null
 }
 
-const ListingCard: React.FC<ListindCardProps> = ({
+const ListingCard: React.FC<ListingCardProps> = ({
   data,
   reservation,
   onAction,

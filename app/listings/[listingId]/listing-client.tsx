@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Range } from 'react-date-range'
-import { Reservation } from '@prisma/client'
 import { useRouter } from 'next/navigation'
 import { differenceInCalendarDays, eachDayOfInterval } from 'date-fns'
 import { toast } from 'react-hot-toast'
@@ -11,7 +10,7 @@ import axios from 'axios'
 import Container from '@/app/components/container'
 import { categories } from '@/app/components/navbar/Categories'
 import ListingHead from '@/app/components/listing-head'
-import { SafeListing, SafeUser } from '@/app/types'
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types'
 import ListingInfo from '@/app/components/listing-info'
 
 import useLoginModal from '@/app/hooks/useLoginModal'
@@ -25,7 +24,7 @@ const initialDateRange = {
 
 interface ListingClientProps {
   listing: SafeListing & { user: SafeUser }
-  reservations?: Reservation[]
+  reservations?: SafeReservation[]
   currentUser?: SafeUser | null
 }
 
@@ -70,7 +69,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
         totalPrice,
         startDate: dateRange.startDate,
         endDate: dateRange.endDate,
-        listindId: listing?.id,
+        listingId: listing?.id,
       })
 
       toast.success('Listing reserved!')
