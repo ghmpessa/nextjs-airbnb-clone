@@ -59,13 +59,13 @@ const ListingClient: React.FC<ListingClientProps> = ({
     return categories.find(item => item.label === listing.category)
   }, [listing.category])
 
-  const onCreateReservation = useCallback(() => {
+  const onCreateReservation = useCallback(async () => {
     if (!currentUser) return loginModal.onOpen()
 
     setIsLoading(true)
 
     try {
-      axios.post('/api/reservations', {
+      await axios.post('/api/reservations', {
         totalPrice,
         startDate: dateRange.startDate,
         endDate: dateRange.endDate,
