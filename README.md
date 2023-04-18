@@ -1,3 +1,3 @@
 #Airbnb clone
 
-- Project developed to pratice Next.js 13.
+Project developed to pratice Next.js 13.
